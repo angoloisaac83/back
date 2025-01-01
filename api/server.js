@@ -11,6 +11,28 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
+// Serve static HTML page
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Server Status</title>
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+            h1 { color: green; }
+        </style>
+    </head>
+    <body>
+        <h1>Server is running!</h1>
+        <p>API is available at <a href="/api/drinks">/api/drinks</a></p>
+    </body>
+    </html>
+  `);
+});
+
 // Path to JSON file
 const filePath = '../data.json';
 

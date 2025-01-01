@@ -102,8 +102,3 @@ app.delete('/api/drinks/:category/:name', (req, res) => {
     res.status(404).json({ message: 'Drink not found!' });
   }
 });
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
